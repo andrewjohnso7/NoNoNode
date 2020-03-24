@@ -3,13 +3,11 @@ exports.homePage = (req, res) => {
   res.render('index')
 }
 
-exports.reverse =  (req, res) => {
-  const reverse = [...req.params.name].reverse().join("");
-  res.send(reverse)
+exports.addStore = (req, res) => {
+  res.render('editStore', {title: 'Add Store' })
 }
 
-exports.myMiddleware = (req, res, next) => {
-  req.name = 'Andrew';
-  res.cookie('name', 'Pay attention', {maxAge: 300000})
-  next();
+exports.createStore = (req, res) => {
+  // To test this you can console log the request body
+  res.json(req.body);
 }
